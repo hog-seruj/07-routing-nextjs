@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import { useId } from 'react';
-import { createNote } from '@/lib/api/noteService';
+import { createNote } from '@/lib/api';
 import type { CreateNoteData, Note } from '@/types/note';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';

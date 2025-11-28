@@ -13,7 +13,7 @@ import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
 import useModalControl from '@/components/hooks/useModalControl';
 import Modal from '@/components/Modal/Modal';
 import NoteForm from '@/components/NoteForm/NoteForm';
-import { fetchNotes } from '@/lib/api/noteService';
+import { fetchNotes } from '@/lib/api';
 
 export default function NotesClient() {
   const [searchText, setSearchText] = useState('');
