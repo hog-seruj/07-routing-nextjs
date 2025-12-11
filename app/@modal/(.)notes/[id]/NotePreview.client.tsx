@@ -6,9 +6,13 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchNoteById } from '@/lib/api';
 import Loader from '@/components/Loader/Loader';
 import Modal from '@/components/Modal/Modal';
+interface NotePreviewClientProps {
+  id?: string;
+}
 
-function NotePreviewClient() {
-  const { id } = useParams<{ id: string }>();
+function NotePreviewClient({ id }: NotePreviewClientProps) {
+  const params = useParams<{ id: string }>();
+  const noteId = id ?? params.id;
 
   const router = useRouter();
 
@@ -19,8 +23,8 @@ function NotePreviewClient() {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['note', id],
-    queryFn: () => fetchNoteById(id),
+    queryKey: ['note', noteId],
+    queryFn: () => fetchNoteById(noteId),
     refetchOnMount: false,
   });
 
